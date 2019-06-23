@@ -18,3 +18,25 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.'
+], function() {
+    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::group([
+        'prefix' => 'anak-asuh',
+        'as' => 'anak-asuh'
+    ], function () {
+        Route::get('/', function () {
+            return view('welcome');
+        });
+    });
+    Route::group([
+        'prefix' => 'donatur',
+        'as' => 'donatur'
+    ], function () {
+        Route::get('/', function () {
+            return view('welcome');
+        });
+    });
+});
