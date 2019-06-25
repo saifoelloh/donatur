@@ -21,11 +21,11 @@
     <div class="box-body">
         <div class="row">
             <div class="col-md-6">
-                <form action={{route('anak-asuh.create')}} method="post">
+                <form action={{route('anak-asuh.store')}} method="post">
                     @csrf
                     <div class="form-group">
                         <label for="nikAnak">NIK</label>
-                        <input type="text" name="nama" class="form-control" id="nikAnak" required placeholder="NIK">
+                        <input type="text" name="nik" class="form-control" id="nikAnak" required placeholder="NIK">
                     </div>
                     <div class="form-group">
                         <label for="namaAnak">Nama</label>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pendidikan">Pendidikan</label>
-                        <select class="form-control" name="gender" id="gender" required>
+                        <select class="form-control" name="pendidikan" id="gender" required>
                             <option value="tk">TK</option>
                             <option value="sd">SD</option>
                             <option value="smp">SMP</option>
