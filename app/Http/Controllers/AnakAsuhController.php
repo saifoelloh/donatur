@@ -14,7 +14,11 @@ class AnakAsuhController extends Controller
      */
     public function index()
     {
-        //
+        $data = AnakAsuh::All();
+
+        return view('vendor.adminlte.admin.anak-asuh.index', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class AnakAsuhController extends Controller
      */
     public function create()
     {
-        //
+        return view('vendor.adminlte.admin.anak-asuh.create');
     }
 
     /**
@@ -44,7 +48,7 @@ class AnakAsuhController extends Controller
      * @param  \App\AnakAsuh  $anakAsuh
      * @return \Illuminate\Http\Response
      */
-    public function show(AnakAsuh $anakAsuh)
+    public function show($id)
     {
         //
     }
@@ -55,7 +59,7 @@ class AnakAsuhController extends Controller
      * @param  \App\AnakAsuh  $anakAsuh
      * @return \Illuminate\Http\Response
      */
-    public function edit(AnakAsuh $anakAsuh)
+    public function edit($id)
     {
         //
     }
@@ -67,7 +71,7 @@ class AnakAsuhController extends Controller
      * @param  \App\AnakAsuh  $anakAsuh
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AnakAsuh $anakAsuh)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,7 +82,7 @@ class AnakAsuhController extends Controller
      * @param  \App\AnakAsuh  $anakAsuh
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AnakAsuh $anakAsuh)
+    public function destroy($id)
     {
         //
     }
