@@ -25,38 +25,38 @@
                     @csrf
                     <div class="form-group">
                         <label for="nikAnak">NIK</label>
-                        <input type="text" name="nama" class="form-control" id="nikAnak" placeholder="NIK">
+                        <input type="text" name="nama" class="form-control" id="nikAnak" required placeholder="NIK">
                     </div>
                     <div class="form-group">
                         <label for="namaAnak">Nama</label>
-                        <input type="text" name="nama" class="form-control" id="namaAnak" placeholder="Nama Terang Anak">
+                        <input type="text" name="nama" class="form-control" id="namaAnak" required placeholder="Nama Terang Anak">
                     </div>
                     <div class="form-group">
                         <label for="alamatAnak">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" id="alamatAnak" placeholder="Alamat Anak">
+                        <input type="text" name="alamat" class="form-control" id="alamatAnak" required placeholder="Alamat Anak">
                     </div>
                     <div class="form-group">
                         <label for="noTelpAnak">No Telp</label>
-                        <input type="text" name="no_telp" class="form-control" id="noTelpAnak" placeholder="Nama Terang Anak">
+                        <input type="text" name="no_telp" class="form-control" id="noTelpAnak" required placeholder="Nama Terang Anak">
                     </div>
                     <div class="form-group">
                         <label for="gender">Gender</label>
-                        <select class="form-control" name="gender" id="gender">
+                        <select class="form-control" name="gender" id="gender" required>
                             <option value="laki-laki">Laki-laki</option>
                             <option value="perempuan">Perempuan</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="tempat_lahir">Tempat Lahir</label>
-                        <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir">
+                        <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" required>
                     </div>
                     <div class="form-group">
                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                        <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir">
+                        <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" required>
                     </div>
                     <div class="form-group">
                         <label for="pendidikan">Pendidikan</label>
-                        <select class="form-control" name="gender" id="gender">
+                        <select class="form-control" name="gender" id="gender" required>
                             <option value="tk">TK</option>
                             <option value="sd">SD</option>
                             <option value="smp">SMP</option>
@@ -66,11 +66,11 @@
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
-                        <input type="text" class="form-control" name="status" id="status">
+                        <input type="text" class="form-control" name="status" id="status" required>
                     </div>
                     <div class="form-group">
                         <label for="tanggal_masuk">Tanggal Masuk</label>
-                        <input type="date" class="form-control" name="tanggal_masuk" id="tanggal_masuk">
+                        <input type="date" class="form-control" name="tanggal_masuk" id="tanggal_masuk" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-warning">Cancel</button>
