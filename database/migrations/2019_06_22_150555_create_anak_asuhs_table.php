@@ -15,8 +15,8 @@ class CreateAnakAsuhsTable extends Migration
     {
         Schema::create('anak_asuhs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');
             $table->string('nik');
+            $table->string('nama');
             $table->string('alamat');
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->string('tempat_lahir');
