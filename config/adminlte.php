@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'green',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,7 +121,7 @@ return [
         [
             'text'  => 'Donatur',
             'route' => 'donatur',
-            'icon' => 'dot-circle',
+            'icon' => 'aviato',
         ],
     ],
 
