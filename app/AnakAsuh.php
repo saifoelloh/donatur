@@ -13,9 +13,26 @@ class AnakAsuh extends Model
         'no_telp',
         'gender',
         'tempat_lahir',
-        'tangal_lahir',
+        'tanggal_lahir',
         'pendidikan',
         'status',
         'tanggal_masuk',
     ];
+
+    public function pendidikan() {
+        return [
+            'tk',
+            'sd',
+            'smp',
+            'sma',
+            'pti',
+        ];
+    }
+
+    public function gender() {
+        return [
+            'laki-laki',
+            'perempuan'
+        ];
+    }
 }
