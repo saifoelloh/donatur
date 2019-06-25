@@ -110,17 +110,17 @@ return [
     'menu' => [
         [
             'text'  => 'Dashboard',
-            'route'   => 'admin.dashboard',
+            'route'   => 'dashboard',
             'icon'  => 'tachometer'
         ],
         [
             'text'  => 'Anak Asuh',
-            'route'   => 'admin.anak-asuh',
+            'route'   => 'anak-asuh',
             'icon'  => 'users',
         ],
         [
             'text'  => 'Donatur',
-            'route' => 'admin.donatur',
+            'route' => 'donatur',
             'icon' => 'dot-circle',
         ],
     ],
