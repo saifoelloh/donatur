@@ -14,7 +14,11 @@ class DonaturController extends Controller
      */
     public function index()
     {
-        //
+        $donaturs = Donatur::All();
+
+        return view('vendor.adminlte.admin.donatur.index', [
+            'donaturs' => $donaturs
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class DonaturController extends Controller
      */
     public function create()
     {
-        //
+        return view('vendor.adminlte.admin.donatur.create');
     }
 
     /**
@@ -35,7 +39,23 @@ class DonaturController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $findDonatur = Donatur::where('email', $request->email)->get();
+        if (sizeof($findDonatur)!=0) {
+            return abort(400);
+        }
+
+        try {
+            Donatur::create([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'alamat' => $request->alamat,
+                'status' => $request->status,
+            ]);
+        } catch (\Throwable $th) {
+            return abort(500, $th);
+        }
+
+        return redirect()->route('donatur');
     }
 
     /**
@@ -44,7 +64,7 @@ class DonaturController extends Controller
      * @param  \App\Donatur  $donatur
      * @return \Illuminate\Http\Response
      */
-    public function show(Donatur $donatur)
+    public function show($id)
     {
         //
     }
@@ -55,9 +75,16 @@ class DonaturController extends Controller
      * @param  \App\Donatur  $donatur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donatur $donatur)
+    public function edit($id)
     {
-        //
+        $findDonatur = Donatur::find($id);
+        if ($findDonatur==null) {
+            return abort(404);
+        }
+
+        return view('vendor.adminlte.admin.donatur.edit', [
+            'donatur' => $findDonatur
+        ]);
     }
 
     /**
@@ -67,9 +94,25 @@ class DonaturController extends Controller
      * @param  \App\Donatur  $donatur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Donatur $donatur)
+    public function update(Request $request, $id)
     {
-        //
+        $findDonatur = Donatur::find($id);
+        if ($findDonatur==null) {
+            return abort(404);
+        }
+
+        try {
+            $findDonatur->update([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'alamat' => $request->alamat,
+                'status' => $request->status,
+            ]);
+        } catch (\Throwable $th) {
+            return abort(500, $th);
+        }
+
+        return redirect()->route('donatur');
     }
 
     /**
@@ -78,8 +121,14 @@ class DonaturController extends Controller
      * @param  \App\Donatur  $donatur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donatur $donatur)
+    public function destroy($id)
     {
-        //
+        try {
+            Donatur::destroy($id);
+        } catch (\Throwable $th) {
+            return abort(500, $th);
+        }
+
+        return redirect()->route('donatur');
     }
 }
