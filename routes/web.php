@@ -37,8 +37,11 @@ Route::group([
         'prefix' => 'donatur',
         'as' => 'donatur'
     ], function () {
-        Route::get('/', function () {
-            return view('welcome');
-        });
+        Route::get('/', 'DonaturController@index');
+        Route::post('/', 'DonaturController@store')->name('.store');
+        Route::get('/create', 'DonaturController@create')->name('.create');
+        Route::get('/{id}', 'DonaturController@edit')->name('.edit');
+        Route::put('/{id}', 'DonaturController@update')->name('.update');
+        Route::delete('/{id}', 'DonaturController@destroy')->name('.destroy');
     });
 });
