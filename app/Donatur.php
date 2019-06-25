@@ -12,4 +12,8 @@ class Donatur extends Model
         'alamat',
         'status',
     ];
+
+    public function status() {
+        return ['tetap', 'tidak tetap'];
+    }
 }
