@@ -14,4 +14,8 @@ class Donasi extends Model
     public function donatur() {
         return $this->belongsTo(Donatur::class);
     }
+
+    public function biaya() {
+        return $this->hasOne(Biaya::class);
+    }
 }
