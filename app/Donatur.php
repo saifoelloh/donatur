@@ -16,4 +16,8 @@ class Donatur extends Model
     public function status() {
         return ['tetap', 'tidak tetap'];
     }
+
+    public function donasi() {
+        return $this->hasMany(Donasi::class);
+    }
 }
