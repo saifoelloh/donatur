@@ -121,7 +121,7 @@ return [
         [
             'text'  => 'Donatur',
             'route' => 'donatur',
-            'icon' => 'aviato',
+            'icon' => 'balance-scale',
         ],
     ],
 
