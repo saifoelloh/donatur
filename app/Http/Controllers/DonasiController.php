@@ -15,7 +15,14 @@ class DonasiController extends Controller
      */
     public function index()
     {
-        //
+        $donasis = Donasi::All();
+        $donasis->each(function($item) {
+            return $item->donatur;
+        });
+
+        return view('vendor.adminlte.admin.donasi.index', [
+            'donasi' => $donasis
+        ]);
     }
 
     /**
@@ -64,7 +71,7 @@ class DonasiController extends Controller
      * @param  \App\Donasi  $donasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Donasi $donasi)
+    public function show($id)
     {
         //
     }
@@ -75,9 +82,14 @@ class DonasiController extends Controller
      * @param  \App\Donasi  $donasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donasi $donasi)
+    public function edit($id)
     {
-        //
+        $donasi = Donasi::find($id);
+
+        return view('vendor.adminlte.admin.donasi.edit', [
+            'donasi' => $donasi,
+            'donatur' => $donasi->donatur
+        ]);
     }
 
     /**
@@ -87,9 +99,20 @@ class DonasiController extends Controller
      * @param  \App\Donasi  $donasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Donasi $donasi)
+    public function update(Request $request, $id)
     {
-        //
+        $findDonasi = Donasi::find($id);
+
+        try {
+            $findDonasi->update([
+                'tanggal' => $request->tanggal,
+                'jumlah' => $request->jumlah,
+            ]);
+        } catch (\Throwable $th) {
+            return abort(500, $th);
+        }
+
+        return redirect()->route('donasi');
     }
 
     /**
@@ -98,8 +121,14 @@ class DonasiController extends Controller
      * @param  \App\Donasi  $donasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donasi $donasi)
+    public function destroy($id)
     {
-        //
+        try {
+            Donasi::destroy($id);
+        } catch (\Throwable $th) {
+            return abort(500, $th);
+        }
+
+        return redirect()->route('donatur');
     }
 }
