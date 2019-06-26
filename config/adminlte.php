@@ -123,6 +123,11 @@ return [
             'route' => 'donatur',
             'icon' => 'balance-scale',
         ],
+        [
+            'text'  => 'Donasi',
+            'route' => 'donasi',
+            'icon' => 'dollar',
+        ],
     ],
 
     /*
