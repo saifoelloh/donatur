@@ -83,7 +83,8 @@ class DonaturController extends Controller
         }
 
         return view('vendor.adminlte.admin.donatur.edit', [
-            'donatur' => $findDonatur
+            'donatur' => $findDonatur,
+            'donasis' => $findDonatur->donasi
         ]);
     }
 
