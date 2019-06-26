@@ -6,7 +6,7 @@
 <div class="box box-primary">
     <div class="box-header">
         <h3 class="box-title">
-            Tambah Donatur
+            Tambah Donasi
         </h3>
         <h3 class="box-title pull-right">
             <a href="{{route('donatur')}}" class="btn btn-info">
@@ -26,6 +26,16 @@
                     <div class="form-group">
                         <label for="jumlah">Jumlah</label>
                         <input class="form-control" type="number" name="jumlah" id="jumlah" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donatur">Donatur</label>
+                        <select class="form-control" name="donatur" id="donatur">
+                            @foreach ($donatur as $item)
+                                <option value="{{$item->id}}">
+                                    {{$item->nama}}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-warning">Cancel</button>
