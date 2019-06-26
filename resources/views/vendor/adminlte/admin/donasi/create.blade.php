@@ -9,7 +9,7 @@
             Tambah Donasi
         </h3>
         <h3 class="box-title pull-right">
-            <a href="{{route('donatur')}}" class="btn btn-info">
+            <a href="{{route('donasi')}}" class="btn btn-info">
                 Kembali
             </a>
         </h3>
