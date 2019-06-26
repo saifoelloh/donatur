@@ -25,7 +25,11 @@ class DonasiController extends Controller
      */
     public function create()
     {
-        return view('vendor.adminlte.admin.donasi.create');
+        $donaturs = Donatur::All();
+
+        return view('vendor.adminlte.admin.donasi.create', [
+            'donatur' => $donaturs
+        ]);
     }
 
     /**
@@ -36,7 +40,22 @@ class DonasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $findDonatur = Donatur::find($request->donatur);
+        if ($findDonatur==null) {
+            return abort(404);
+        }
+
+        try {
+            $findDonatur->donasi()->create([
+                'tanggal' => $request->tanggal,
+                'jumlah' => $request->jumlah,
+            ]);
+        } catch (\Throwable $th) {
+            dd($th);
+            return abort(500,$th);
+        }
+
+        return redirect()->route('donatur.edit', $request->donatur);
     }
 
     /**
