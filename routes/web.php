@@ -44,4 +44,15 @@ Route::group([
         Route::put('/{id}', 'DonaturController@update')->name('.update');
         Route::delete('/{id}', 'DonaturController@destroy')->name('.destroy');
     });
+    Route::group([
+        'prefix' => 'donasi',
+        'as' => 'donasi'
+    ], function () {
+        Route::get('/', 'DonasiController@index');
+        Route::post('/', 'DonasiController@store')->name('.store');
+        Route::get('/create', 'DonasiController@create')->name('.create');
+        Route::get('/{id}', 'DonasiController@edit')->name('.edit');
+        Route::put('/{id}', 'DonasiController@update')->name('.update');
+        Route::delete('/{id}', 'DonasiController@destroy')->name('.destroy');
+    });
 });
